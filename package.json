@@ -1,0 +1,26 @@
+{
+  "name": "node-restapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "author": {
+    "name": "Adam",
+    "email": "jstutorials1@gmail.com",
+    "url": "http://www.js-tutorials.com/"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "gmail-send": "^1.2.13",
+    "mysql": "^2.13.0",
+    "node-schedule": "^1.3.0",
+    "nodemailer": "^4.4.2",
+    "squel": "^5.12.0",
+    "unirest": "^0.5.1"
+  }
+}
