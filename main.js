@@ -11,9 +11,9 @@ var squel = require('squel');
 
 //start mysql connection
 var connection = mysql.createConnection({
-    host: 'localhost', //mysql database host name
-    user: 'root', //mysql database user name
-    password: 'root', //mysql database password
+    host: 'mysql://mysql:3306/', //mysql database host name
+    user: 'crypto', //mysql database user name
+    password: 'crypto', //mysql database password
     database: 'nodejs' //mysql database name
 });
 
