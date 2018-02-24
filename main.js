@@ -18,8 +18,27 @@ var connection = mysql.createConnection({
 });
 
 connection.connect(function(err) {
-    if (err) throw err;
-    console.log('You are now connected...');
+    if (err) {
+        throw err;
+    } else {
+        console.log('You are now connected...');
+        var exchangeQuery = "CREATE TABLE IF NOT EXISTS `exchange` (  `id` int(11) NOT NULL,  `name` varchar(50) NOT NULL,  `apikey` varchar(500) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
+        connection.query(exchangeQuery, function(error, results, fields) {
+            if (error) {
+                throw err;
+            } else {
+                console.log('Exchange Table Created');
+                var coinQuery = "CREATE TABLE IF NOT EXISTS `coin` (  `id` int(11) NOT NULL AUTO_INCREMENT,  `exchangeId` int(11) NOT NULL,  `name` varchar(100) NOT NULL,  `code` varchar(100) NOT NULL,  `pair` varchar(100) NOT NULL,  `baseName` varchar(100) NOT NULL,  `baseCode` varchar(100) NOT NULL,  PRIMARY KEY (`id`),  KEY `FK_Exchange` (`exchangeId`),  CONSTRAINT `FK_Exchange` FOREIGN KEY (`exchangeId`) REFERENCES `exchange` (`id`)) ENGINE=InnoDB AUTO_INCREMENT=1225 DEFAULT CHARSET=utf8;";
+                connection.query(exchangeQuery, function(error, results, fields) {
+                    if (error) {
+                        throw err;
+                    } else {
+                        console.log('Coin Table Created');
+                    }
+                });
+            }
+        });
+    }
 });
 //end mysql connection
 
