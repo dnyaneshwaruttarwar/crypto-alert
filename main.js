@@ -240,13 +240,13 @@ var server = app.listen(3000, "127.0.0.1", function() {
 
             mailOptions.text = "New Coin Added \n\n Coin Name: " + coin.code + "\n\n Exchange Name: " + exchange.name;
 
-            transporter.sendMail(mailOptions, function(error, info) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('Email sent: ' + info.response);
-                }
-            });
+            // transporter.sendMail(mailOptions, function(error, info) {
+            //     if (error) {
+            //         console.log(error);
+            //     } else {
+            //         console.log('Email sent: ' + info.response);
+            //     }
+            // });
 
             // send({ // Overriding default parameters
             //     subject: 'attached'
